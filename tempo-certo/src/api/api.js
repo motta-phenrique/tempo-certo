@@ -61,14 +61,12 @@ export async function getTempNextFiveDays(lat, lon) {
       }
     );
 
-    // Extrair a lista de previsões
     const forecastList = response.data.list;
 
-    // Agrupar por dia e calcular as temperaturas máxima e mínima
     const dailyForecasts = {};
 
     forecastList.forEach((item) => {
-      const date = item.dt_txt.split(" ")[0]; // Extrair a data (AAAA-MM-DD)
+      const date = item.dt_txt.split(" ")[0];
       
       if (!dailyForecasts[date]) {
         dailyForecasts[date] = {
@@ -76,11 +74,9 @@ export async function getTempNextFiveDays(lat, lon) {
           date: date
         };
       }
-      // Armazenar todas as temperaturas para cada dia
       dailyForecasts[date].temps.push(item.main.temp);
     });
 
-    // Processar os dados para calcular as temperaturas máxima e mínima
     const fiveDayForecast = Object.values(dailyForecasts).slice(0, 5).map((day) => ({
       date: day.date,
       temp_max: Math.max(...day.temps), // Máxima
