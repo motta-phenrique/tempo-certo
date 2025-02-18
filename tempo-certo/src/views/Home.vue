@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="flex bg-[url('./src/assets/images/backgrounds/bg-sol.jpg')] bg-cover justify-center items-center py-4 w-full flex-col gap-4"
+      class="flex bg-[url('../src/assets/images/backgrounds/bg-sol.jpg')] bg-cover justify-center items-center py-4 w-full flex-col gap-4"
     >
       <div class="flex-1 flex justify-around gap-2">
         <div class="flex items-center gap-2 w-full">
